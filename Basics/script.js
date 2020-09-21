@@ -1,0 +1,1 @@
+alert("Loaded as a script");
