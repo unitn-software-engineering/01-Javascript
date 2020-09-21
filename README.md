@@ -1,10 +1,5 @@
-# Web 2.0 e Javascript
-
-Laboratorio di Ingegneria del Software 2
-
-Anno accademico 2020-2021
-
-Università degli studi di Trento
+# Introduzione a Javascript e node.js
+Laboratorio di Ingegneria del Software 2 - Anno accademico 2020-2021 - Università degli studi di Trento
 
 
 ## Il World Wide Web
