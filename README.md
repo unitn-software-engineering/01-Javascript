@@ -51,6 +51,9 @@ Essendo Javascript un linguaggio basato sugli eventi, evita di dedicare interi t
 - "Advanced" contiene esempi avanzati da eseguire in Node.js
 - "Additional" contiene esempi aggiuntivi che approfondiremo prossimamente
 
+E possibile testare rapidamente gli script tramite Repl.it:
+https://repl.it/@marcorobol/01-Javascript#README.md
+
 
 ## Software e servizi richiesti per il prossimo laboratorio:
 - Browser web (e.g. Chrome)
