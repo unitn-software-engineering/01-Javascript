@@ -205,7 +205,7 @@ Play with the above forms, submit some example requests and analyse what arrives
 
 On the first point, there is nice an extensive discussion here (https://www.w3schools.com/tags/ref_httpmethods.asp). Apart from some obvious practical reasons, we'll discuss some more fundamentals one when we get to REST APIs.
 
-On the second point, an alternative would be to process the put together the response body by concatenating chunks from the stream (remember when we did this in the first day?) but that is not necessary, because the body-parser middleware provides this funcionality already. 
+On the second point, an alternative would be to process and put together the response body by concatenating chunks from the stream but that is not necessary, because express provides this funcionality already. 
 
 **Parsing request body contents**
 
@@ -223,8 +223,8 @@ var bodyParser = require('body-parser');
 // Mount body-parser middleware, and instruct it to 
 // process form url-encoded data
 app.use(bodyParser.urlencoded());
-
 ```
+
 After doing this, we should be able to access the form data by directy using `req.body`
 
 ```javascript
@@ -241,6 +241,14 @@ https://www.quora.com/What-exactly-does-body-parser-do-with-express-js-and-why-d
 - bodyParser.text(): Reads the buffer as plain text and exposes the resulting string on req.body.
 - bodyParser.urlencoded(): Parses the text as URL encoded data (which is how browsers tend to send form data from regular forms set to POST) and exposes the resulting object (containing the keys and values) on req.body. For comparison; in PHP all of this is automatically done and exposed in $_POST.
 - bodyParser.json(): Parses the text as JSON and exposes the resulting object on req.body.
+
+Since Express release 4.16.0, the bodyParser module has been included in Express. Now `app.use(express.json())` can be used in place of `app.use(bodyParser.json())`.
+
+```javascript
+app.use(express.json());
+app.use(express.urlencoded());
+```
+
 
 **What about HTTP status codes?**
 You can read the following blog post, which summarises nicely what each stands for and when to use them:
@@ -296,9 +304,6 @@ Our challenge: Implementing the products API!. There is a stub implementation in
 ### Exercises
 1. Finish implementing the Products API backend
 2. Implement the web API for managing student registrations as specified here: https://www.studytonight.com/rest-web-service/designing-the-rest-api
-
-### Challenge
-Create the Zlatan service, replicating the functionality of the Chuck Norris Internet Database, and using Google Spreadsheet as you database. Tip: You can use the link a downloaded CSV file (File -> Download as -> Comma Separated Values) and transform it to json.
 
 
 ## References and further reading

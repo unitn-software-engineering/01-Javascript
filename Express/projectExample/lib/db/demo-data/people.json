@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "role": "admin",
+        "username": "james94",
+        "email": "james.smith@gmail.com"
+    },
+    {
+        "id": 2,
+        "role": "teacher",
+        "username": "nancy97",
+        "email": "nancy.lee@yahoo.com"
+    },
+    {
+        "id": 3,
+        "role": "student",
+        "username": "matthew98",
+        "email": "matthew.walker@gmail.com"
+    }
+]

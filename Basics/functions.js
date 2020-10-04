@@ -7,6 +7,8 @@ var mult = function (a, b) {
     return a * b;
 };
 
+var funzioneFreccia = (a,b) => a * b;
+
 
 //body
 console.log(
@@ -15,4 +17,8 @@ console.log(
 
 console.log(
     mult(1,2) 
+    );
+
+console.log(
+    funzioneFreccia(2,2) 
     );

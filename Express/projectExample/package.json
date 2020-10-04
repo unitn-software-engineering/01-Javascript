@@ -1,0 +1,14 @@
+{
+  "name": "gitarhero",
+  "version": "1.0.0",
+  "description": "gitar hero API",
+  "main": "index.js",
+  "private": true,
+  "directories": {
+    "lib": "lib"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
