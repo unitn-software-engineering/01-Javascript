@@ -1,7 +1,6 @@
 # Introduzione a Javascript e node.js
 Laboratorio di Ingegneria del Software 2 - Anno accademico 2020-2021 - Università degli studi di Trento
 
-
 ## Il World Wide Web
 E' un mezzo di comunicazione globale che opera attraverso Internet.
 Nasce nel 1989, su proposta di Tim Berners-Lee al CERN, come un database basato su ipertesti collegati l'un l'altro da link.
@@ -63,3 +62,6 @@ https://repl.it/@marcorobol/01-Javascript#README.md
 - Attivare un account su github.com (registrandosi con l'indirizzo @unitn si ottiene la licenza pro)
 - Postman (https://www.postman.com/downloads/)
 - Attivare un account su https://apiary.io/
+
+## Dispense e materiale aggiuntivo:
+- https://github.com/matteocontrini/nodejs-fundamentals#nodejs-repl
