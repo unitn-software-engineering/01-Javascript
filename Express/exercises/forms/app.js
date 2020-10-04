@@ -30,13 +30,6 @@ app.get('/search', function(req, res){
   console.log(util.inspect(req.headers, {showHidden: false, depth: null}))
   console.log(util.inspect(req.url, {showHidden: false, depth: null}))
   console.log(util.inspect(req.query, {showHidden: false, depth: null}))
-  
-  for (var i=0; i<people.length; i++) {
-    if (people[i].name == req.query.terms) {
-      res.status(200).send(people[i]);
-      return;
-    }
-  }
 
   res.status(200).send('These are the items found!');  
 });
@@ -46,8 +39,6 @@ app.post('/subscribe', function(req, res){
   console.log(util.inspect(req.headers, {showHidden: false, depth: null}))
   console.log(util.inspect(req.params, {showHidden: false, depth: null}))  
   console.log(req.body);
-
-  people.push({name: req.body.name, email: req.body.email});
 
   res.status(201).send('You are now subscribed!');
   

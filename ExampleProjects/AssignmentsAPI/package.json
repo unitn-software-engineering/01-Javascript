@@ -1,7 +1,7 @@
 {
-  "name": "gitarhero",
+  "name": "project_example",
   "version": "1.0.0",
-  "description": "gitar hero API",
+  "description": "",
   "main": "index.js",
   "private": true,
   "directories": {
