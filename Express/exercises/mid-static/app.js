@@ -9,12 +9,12 @@ var app = express();
 
 var port = 3000;
 
+app.use('/hello', express.static('cartella'));
+
 // Handling GET requests
 app.get('/hello', function(req, res){ 
   res.send('Hello World!');
 });
-
-app.use('/hello', express.static('cartella'));
 
 app.listen(port, function() {
   console.log('Server running on port ', port);
