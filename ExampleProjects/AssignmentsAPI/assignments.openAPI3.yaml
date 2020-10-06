@@ -1,45 +1,43 @@
-swagger: '2.0'
+openapi: 3.0.0
 info:
   version: '1.0'
-  title: "Assignments API"
+  title: "Assignments OpenAPI 3.0"
   description: API for managing exams.
   license:
     name: MIT
-host: localhost
-basePath: /api/v1
-schemes:
-- http
-consumes:
-- application/json
-produces:
-- application/json
+servers:
+  - url: http://assignments-api.herokuapp.com.com/api/v1
+    description: Heroku instance
+  - url: http://localhost:3000/api/v1
+    description: Localhost
 paths:
   /users:
     post:
       description: >-
         Creates a new user in the system.
       summary: Create a new user
-      parameters:
-        - name: register
-          in: body
-          required: true
-          schema:
-            type: object
-            required:
-              - username
-              - email
-            properties:
-              username:
-                type: string
-                description: 'Username of the user'
-              email:
-                type: string
-                description: 'Email address of the user'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - username
+                - email
+              properties:
+                username:
+                  type: string
+                  description: 'Username of the user'
+                email:
+                  type: string
+                  description: 'Email address of the user'
       responses:
-        201:
+        '201':
           description: 'The created user'
-          schema:
-            $ref: '#/definitions/User'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
 
   /users/{id}:
     get:
@@ -50,44 +48,46 @@ paths:
         - name: id
           in: path
           required: true
-          type: integer
           description: 'ID of the requested user'
       responses:
-        200:
+        '200':
           description: 'The user corresponding to the input ID'
-          schema:
-            $ref: '#/definitions/User'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
   /assignments:
     post:
       description: >-
         Creates an assignment.
       summary: Create an assignment
-      parameters:
-        - name: assignment
-          in: body
-          required: true
-          schema:
-            type: object
-            required:
-              - name
-              - deadline
-              - status
-            properties:
-              name:
-                type: string
-                description: 'Name for the assignment'
-              deadline:
-                type: string
-                description: 'Datetime of the deadline in ISO 8601 format'
-              status:
-                type: string
-                enum: [open, closed]
-                description: 'Defined whether the assignment is open for replies or not'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - name
+                - deadline
+                - status
+              properties:
+                name:
+                  type: string
+                  description: 'Name for the assignment'
+                deadline:
+                  type: string
+                  description: 'Datetime of the deadline in ISO 8601 format'
+                status:
+                  type: string
+                  enum: [open, closed]
+                  description: 'Defined whether the assignment is open for replies or not'
       responses:
-        201:
+        '201':
           description: 'The created assignment'
-          schema:
-            $ref: '#/definitions/Assignment'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Assignment'
     get:
       description: >-
         Gets the list of assignments. Optionally, you can pass the ID of the user as a parameter.
@@ -95,16 +95,17 @@ paths:
         if it is a student, then the list represents the assignments they have to complete.
       summary: Get assignments
       responses:
-        200:
+        '200':
           description: 'Collection of assignments'
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/Assignment'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Assignment'
       parameters:
         - in: query
           name: userId
-          type: integer
           description: 'Optional parameter. The user ID is used to restrict the results of the request'
   /assignments/{id}:
     get:
@@ -112,15 +113,16 @@ paths:
         Gets information about a specific assignment
       summary: Get an assignment
       responses:
-        200:
+        '200':
           description: 'The assignment corresponding to the input ID'
-          schema:
-            $ref: '#/definitions/Assignment'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Assignment'
       parameters:
         - name: id
           in: path
           required: true
-          type: integer
           description: 'ID of the requested assignment'
     put:
       description: >-
@@ -128,28 +130,28 @@ paths:
         and the list of tasks. In the request, send only the fields that you want to change.
       summary: Update assignment
       responses:
-        200:
+        '200':
           description: 'The updated assignment'
-          schema:
-            $ref: '#/definitions/Assignment'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Assignment'
       parameters:
         - name: id
           in: path
           required: true
-          type: integer
           description: 'ID of the assignment to modify'
     delete:
       description: >-
         Deletes an assignment.
       summary: Delete an assignment
       responses:
-        204:
+        '204':
           description: ''
       parameters:
         - name: id
           in: path
           required: true
-          type: integer
           description: 'ID of the assignment to delete'
   /marks:
     post:
@@ -157,84 +159,84 @@ paths:
         Gives a mark for an assignment made by a student.
       summary: Give a mark
       responses:
-        201:
+        '201':
           description: ''
-      parameters:
-        - name: mark
-          in: body
-          required: true
-          schema:
-            $ref: '#/definitions/Mark'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Mark'
     get:
       description: >-
         Gets marks. It is possible to get the marks for all the assignments a user has taken,
         or the mark for a specific exam.
       summary: Get marks
       responses:
-        200:
+        '200':
           description: 'A collection of marks'
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/Mark'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
       parameters:
         - in: query
           name: userId
-          type: integer
         - in: query
           name: assignmentId
-          type: integer
           
-definitions:
-  User:
-    type: object
-    required:
-      - id
-      - username
-      - email
-    properties:
-      id:
-        type: integer
-        description: 'ID of the user'
-      username:
-        type: string
-        description: 'Username of the user'
-      email:
-        type: string
-        description: 'Email address of the user'
-  Assignment:
-    type: object
-    required:
-      - name
-      - deadline
-      - status
-    properties:
-      name:
-        type: string
-        description: 'Name for the assignment'
-      deadline:
-        type: string
-        description: 'Datetime of the deadline in ISO 8601 format'
-      status:
-        type: string
-        enum: [open, closed]
-        description: 'Defined whether the assignment is open for replies or not'
-  Mark:
-    type: object
-    required:
-    - userId
-    - assignmentId
-    - mark
-    properties:
-      userId:
-        type: integer
-        description: 'ID of the user the mark has been given to'
-      assignmentId:
-        type: integer
-        description: 'ID of the assignment'
-      mark:
-        type: string
-        description: 'The given mark value'
-      text:
-        type: string
-        description: 'Comment associated to the mark'
+components:
+  schemas:
+    User:
+      type: object
+      required:
+        - id
+        - username
+        - email
+      properties:
+        id:
+          type: integer
+          description: 'ID of the user'
+        username:
+          type: string
+          description: 'Username of the user'
+        email:
+          type: string
+          description: 'Email address of the user'
+    Assignment:
+      type: object
+      required:
+        - name
+        - deadline
+        - status
+      properties:
+        name:
+          type: string
+          description: 'Name for the assignment'
+        deadline:
+          type: string
+          description: 'Datetime of the deadline in ISO 8601 format'
+        status:
+          type: string
+          enum: [open, closed]
+          description: 'Defined whether the assignment is open for replies or not'
+    Mark:
+      type: object
+      required:
+      - userId
+      - assignmentId
+      - mark
+      properties:
+        userId:
+          type: integer
+          description: 'ID of the user the mark has been given to'
+        assignmentId:
+          type: integer
+          description: 'ID of the assignment'
+        mark:
+          type: string
+          description: 'The given mark value'
+        text:
+          type: string
+          description: 'Comment associated to the mark'
