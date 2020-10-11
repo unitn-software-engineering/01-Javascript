@@ -54,14 +54,14 @@ CRUD operations are mapped to the standard HTTP verbs. In our example we will ha
 
 
 To specify the body of the response in Express.js use:
-```json
+```javascript
   res.send(body);
 ```
 Here is a article on the use of [json() vs send()](medium.com/gist-for-js/use-of-res-json-vs-res-send-vs-res-end-in-express-b50688c0cddf.)
 
 
 The response of a POST request should provide an empty body and an HTTP header 'Location' with a link to the newly created resource. For example:
-```json
+```javascript
 app.post('/api/products', function (req, res) {
   ...
   res.location("/api/products/" + product.id);
@@ -74,7 +74,7 @@ app.post('/api/products', function (req, res) {
 > ***Read the following article:*** Using status code in RESTful APIs: https://www.restapitutorial.com/lessons/httpmethods.html
 
 In our products API example:
-```json
+```javascript
 app.post('/api/products', function (req, res) {
   ...
   res.status(201).json(body-of-the-response);
