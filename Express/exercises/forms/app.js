@@ -21,9 +21,9 @@ var port = 3000;
 
 app.use('/', express.static('public'));
 
-var people = [{ name : "Mario Ferrari", email : "fake@news.it"}, 
-              { name : "Carlo Smith",   email : "youreach@menot.it"},
-              { name : "Fabio Ferrari", email : "email@email.com"}];
+var people = [{ name : "Mario Ferrari", email : "mario.ferrari@mail.it"}, 
+              { name : "Carlo Smith",   email : "carlo.smith@mail.com"},
+              { name : "Fabio Ferrari", email : "fabio.ferrari@mail.it"}];
 
 // Handling GET requests
 app.get('/search', function(req, res){ 
@@ -34,11 +34,16 @@ app.get('/search', function(req, res){
 
   var found = people.find( (value) => {
       return (value.name == req.query.name | value.email == req.query.email);
+  for (var i=0; i<people.length; i++) {
+    if (people[i].name == req.query.terms) {
+      res.status(200).send(people[i]);
+      return;
     }
   );
   
   res.status(200).send(found);
 });
+  }
 
 
 app.get('/people', function(req, res){ 
@@ -58,6 +63,7 @@ app.post('/subscribe', function(req, res){
 
   people.push({name: req.body.name, email: req.body.email});
 
+  
   res.status(201).send('You are now subscribed!');
   
 });
