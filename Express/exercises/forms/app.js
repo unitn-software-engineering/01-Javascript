@@ -20,9 +20,9 @@ var port = 3000;
 
 app.use('/', express.static('public'));
 
-var people = [{ name : "Mario Ferrari", email : "fake@news.it"}, 
-              { name : "Carlo Smith",   email : "youreach@menot.it"},
-              { name : "Fabio Ferrari", email : "email@email.com"}];
+var people = [{ name : "Mario Ferrari", email : "mario.ferrari@mail.it"}, 
+              { name : "Carlo Smith",   email : "carlo.smith@mail.com"},
+              { name : "Fabio Ferrari", email : "fabio.ferrari@mail.it"}];
 
 // Handling GET requests
 app.get('/search', function(req, res){ 
