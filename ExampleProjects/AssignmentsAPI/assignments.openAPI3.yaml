@@ -7,7 +7,7 @@ info:
     name: MIT
 servers:
   - url: http://assignments-api.herokuapp.com.com/api/v1
-    description: Heroku instance
+    description: Heroku
   - url: http://localhost:3000/api/v1
     description: Localhost
 paths:
@@ -33,11 +33,12 @@ paths:
                   description: 'Email address of the user'
       responses:
         '201':
-          description: 'The created user'
-          content:
-            application/json:
+          description: 'User created. Link in the Location header'
+          headers:
+            'Location':
               schema:
-                $ref: '#/components/schemas/User'
+                type: string
+              description: Link to the newly created user.
 
   /users/{id}:
     get:
@@ -45,8 +46,10 @@ paths:
         Gets information about a specific user, identified by an ID
       summary: Get a user
       parameters:
-        - name: id
-          in: path
+        - in: path
+          name: id
+          schema:
+            type: integer
           required: true
           description: 'ID of the requested user'
       responses:
@@ -106,6 +109,8 @@ paths:
       parameters:
         - in: query
           name: userId
+          schema:
+            type: integer
           description: 'Optional parameter. The user ID is used to restrict the results of the request'
   /assignments/{id}:
     get:
@@ -122,6 +127,8 @@ paths:
       parameters:
         - name: id
           in: path
+          schema:
+            type: integer
           required: true
           description: 'ID of the requested assignment'
     put:
@@ -139,6 +146,8 @@ paths:
       parameters:
         - name: id
           in: path
+          schema:
+            type: integer
           required: true
           description: 'ID of the assignment to modify'
     delete:
@@ -151,6 +160,8 @@ paths:
       parameters:
         - name: id
           in: path
+          schema:
+            type: integer
           required: true
           description: 'ID of the assignment to delete'
   /marks:
@@ -183,8 +194,12 @@ paths:
       parameters:
         - in: query
           name: userId
+          schema:
+            type: integer
         - in: query
           name: assignmentId
+          schema:
+            type: integer
           
 components:
   schemas:
