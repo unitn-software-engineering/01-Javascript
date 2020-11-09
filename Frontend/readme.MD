@@ -12,7 +12,7 @@ https://developers.google.com/web/updates/2015/03/introduction-to-fetch
 
 ## Vue.js
 
-Per chi volesse crare qualcosa di più complesso, può facilmente trovare in rete vari tutorial su framework specializzati nella UI.
+Per chi volesse approfondire l'argomento e creare qualcosa di più complesso, può facilmente trovare in rete vari tutorial su framework specializzati nella UI.
 
 Vue.js è un framework moderno per lo sviluppo di interfacce grafiche web.
 
