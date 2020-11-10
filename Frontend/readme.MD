@@ -10,6 +10,16 @@ https://scotch.io/tutorials/how-to-use-the-javascript-fetch-api-to-get-data
 
 https://developers.google.com/web/updates/2015/03/introduction-to-fetch
 
+## Javascript Promises
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises
+
+## DOM manipulation
+
+https://www.w3schools.com/js/js_htmldom.asp
+
+https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Manipulating_documents
+
 ## Vue.js
 
 Per chi volesse approfondire l'argomento e creare qualcosa di più complesso, può facilmente trovare in rete vari tutorial su framework specializzati nella UI.
