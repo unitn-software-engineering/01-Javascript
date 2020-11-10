@@ -13,11 +13,11 @@ https://developers.google.com/web/updates/2015/03/introduction-to-fetch
 Fetch vs XMLHttpRequest:
 https://www.sitepoint.com/xmlhttprequest-vs-the-fetch-api-whats-best-for-ajax-in-2019/
 
-## Javascript Promises
+### Javascript Promises
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises
 
-## CORS
+### CORS
 
 https://www.html5rocks.com/en/tutorials/cors/
 
