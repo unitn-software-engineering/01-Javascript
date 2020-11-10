@@ -141,8 +141,8 @@
             var self = this;
             //self.authenticationURI = 'http://localhost:8080/api/authenticate';
             //self.usersURI = 'http://localhost:8080/api/users';
-            self.authenticationURI = 'https://is2-token-authentication.herokuapp.com/api/authenticate';
-            self.usersURI = 'https://is2-token-authentication.herokuapp.com/api/users';
+            self.authenticationURI = './api/authenticate';
+            self.usersURI = './api/users';
             self.username = ko.observable("unsigned user");
             self.token = "";
             self.users = ko.observableArray();

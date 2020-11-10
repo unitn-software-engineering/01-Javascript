@@ -25,8 +25,8 @@ Send a `POST` request to `http://localhost:8080/api/authenticate` with test user
 
 ```
   {
-    name: 'Nick Cerminara',
-    password: 'password'
+    name: 'marco',
+    password: 'marco'
   }
 ```
 
