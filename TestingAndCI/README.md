@@ -73,7 +73,13 @@ This includes the creation of file `.travis.yml`:
 
 ```javascript
 language: node_js
+node_js:
+  - "14"
 ```
+
+Define Environment Variables:
+
+https://docs.travis-ci.com/user/environment-variables
 
 Chech build status of your application on Travis CI.
 Then include the "Build status image" into your repository, in the readme file.
@@ -137,6 +143,12 @@ https://devcenter.heroku.com/articles/git#creating-a-heroku-remote
 1. Alternatively, create a new app from the Heroku Dashboard and then manually add remote source to your local repository:
 
     With Heroku CLI: `heroku git:remote -a our-heroku-app`
+
+1. Define Environment Variables
+
+  https://devcenter.heroku.com/articles/config-vars
+  
+  https://devcenter.heroku.com/articles/heroku-local#copy-heroku-config-vars-to-your-local-env-file
 
 1. Push repository on `heroku` remote
     
