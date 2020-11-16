@@ -1,0 +1,29 @@
+{
+  "name": "apibasics",
+  "version": "1.0.0",
+  "description": "",
+  "main": "api.js",
+  "scripts": {
+    "start": "node api.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fabiounitn/lessonrepo.git"
+  },
+  "jest": {
+    "verbose": true,
+    "collectCoverage": true
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fabiounitn/lessonrepo/issues"
+  },
+  "homepage": "",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "node-fetch": "^2.2.0"
+  }
+}
