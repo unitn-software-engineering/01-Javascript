@@ -1,5 +1,5 @@
 const fetch = require("node-fetch");
-const url = process.env.HEROKU || "http://localhost:3000/courses"
+const url = "http://localhost:3000/courses"
 
 
 it('works with get and post', () => {

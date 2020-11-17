@@ -1,9 +1,9 @@
-const express = require('express')
-var bodyParser = require('body-parser')
+const express = require('express');
 
-const app = express()
-app.use( bodyParser.json() )
-app.use(bodyParser.urlencoded({ extended: true }));
+const app = express();
+app.use(express.json());
+
+app.use(express.urlencoded({ extended: true }));
 
 //this is an environment variable available on Heroku
 const PORT = process.env.PORT || 3000
